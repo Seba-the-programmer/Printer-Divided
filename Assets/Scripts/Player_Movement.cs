@@ -6,7 +6,7 @@ public class Player_Movement : MonoBehaviour
 {
     Rigidbody2D rb;
     [SerializeField] float speed = 1.0f;
-
+    Vector2 moveVector;
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -16,7 +16,7 @@ public class Player_Movement : MonoBehaviour
     {
         float horizontalSpeed = Input.GetAxisRaw("Horizontal");
         float verticalSpeed = Input.GetAxisRaw("Vertical");
-        Vector2 moveVector = new Vector2(horizontalSpeed, verticalSpeed);
+        moveVector = new Vector2(horizontalSpeed, verticalSpeed);
         rb.MovePosition(rb.position + (moveVector.normalized * speed * Time.fixedDeltaTime));
     }
 }
